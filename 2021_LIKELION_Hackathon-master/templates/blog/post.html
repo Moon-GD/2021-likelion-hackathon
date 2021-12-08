@@ -1,0 +1,112 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<body>
+    <link rel="stylesheet" href="../../static/css/post.css">
+    <form action="{%url 'create'%}" method="post" enctype="multipart/form-data">
+        {%csrf_token%}
+        <div class="body">
+            <div class="weather-wrapper" style="margin:0 auto;">
+                <btn class="btn_weather">날씨 선택</btn>
+                <script type="text/javascript">
+                function checkOnlyOne(element) {
+  
+                    const checkboxes 
+                        = document.getElementsByName("weather[]");
+                    
+                    checkboxes.forEach((cb) => {
+                      cb.checked = false;
+                    })
+                    
+                    element.checked = true;
+                  }
+                </script>
+                <input type="checkbox" name="weather[]" value="rainy" onclick='checkOnlyOne(this)' id="box1" class="box1"><label for="box1">비</label>
+                <input type="checkbox" name="weather[]" value="sunny" onclick='checkOnlyOne(this)' id="box2" class="box2"><label for="box2">맑음</label>
+                <input type="checkbox" name="weather[]" value="wind" onclick='checkOnlyOne(this)' id="box3" class="box3"><label for="box3">선선함</label>
+                <input type="checkbox" name="weather[]" value="cloudy" onclick='checkOnlyOne(this)' id="box4" class="box4"><label for="box4">구름 조금</label>
+            </div>
+        </div>
+        <div class="body2">
+            <div class="time-wrapper" style="display:none;">
+                <btn class="btn_time">시간 선택</btn>
+                <input type="datetime-local"/>
+            </div>
+        </div>
+    
+        <div class="body3">
+            <div class="photo-wrapper" style="margin:0 auto;">
+                <btn class="btn_photo">사진 선택</btn>
+                <input type="file" name = "images">(사진 첨부 필수!!)
+                <!-- <input type="file" name="images" accept="image/*" onchange="setThumbnail(event);"/>    -->
+            </div>
+        </div>
+        
+        <div class="body4">
+            <div class="hashtag-wrapper" style="margin:0 auto;">
+                <btn class="btn_hashtag">해시태그</btn>
+                <textarea name="hashtag" rows="5" cols="50" style="color:gray;"></textarea>
+                <p style="color:gray; margin-left:10px; font-size:15px;">여러분의 현재 위치를 적어주세요!<br>ex) #경북대학교 #대현동</p>
+            </div>
+        </div>
+        <div class="body5">
+            <div class="btn-wrapper" style="display:flex; margin:0 auto; width:1000px; padding: 20px; background-color:white; border-radius:10px;">
+                <btn class="btn_desc" style="height: 35px; margin-top: 60px;">내용 입력</btn>
+                <textarea name="body"  placeholder="위치 권한 허용 필수!!" rows="10" cols="50"></textarea>
+            </div>
+        </div>
+        
+        <div class="body6" style="display:none;">
+            <div>
+                <btn class="btn_desc" style="height: 35px; margin-top: 60px;">위도 입력</btn>
+                <textarea name="latitude" id="latitude" rows="1" cols="50"></textarea>
+            </div>
+        </div>    
+        <div class="body7" style="display:none;">
+            <div>
+                <btn class="btn_desc" style="display:none; height: 35px; margin-top: 60px;">경도 입력</btn>
+                <textarea name="longitude" id="longitude" rows="1" cols="50"></textarea>
+            </div>
+        </div>    
+        <!--<div id="latitude" name="latitude" style="display:none"></div>
+        <div id="longitude" name="longitude" style="display:none"></div>-->
+        <div class="body6">
+            <script type="text/javascript">
+                //document.getElementById("latitude").innerHTML = 0.0;
+                //document.getElementById("longitude").innerHTML = 0.0;
+                const latID = document.getElementById("latitude").inner
+
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function(position) {
+        
+                        var lat = position.coords.latitude, // 위도
+                            lon = position.coords.longitude; // 경도
+                        
+                        //var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+                        document.getElementById("latitude").innerHTML = lat;
+                        document.getElementById("longitude").innerHTML = lon;
+                    });
+                } else {
+                    document.getElementById('latitude').innerHTML = 0.0;
+                    document.getElementById('longitude').innerHTML = 0.0;
+                }
+            </script>
+        <!--<input type="hidden" name="latitude" id="latitude" value="">
+        <input type="hidden" name="longitude" id="longitude" value="">-->
+        </div>
+        <button type="submit" class ="submit"> submit</button>
+    </form>
+
+</body>
+{% endblock %}
+
+
+
+<!-- <form action="{%url 'create'%}" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    <p><input type="checkbox" name="rainy" id="box1" class="box1">비
+    <input type="checkbox" name="snowy" id="box1" class="box1">눈</p>
+    본문 <textarea name="body" id="" cols="30" rows="10"></textarea>
+    <p>태그 <textarea name="hashtag" id="" cols="30" rows="1"></textarea></p>
+    <p>사진: <input type="file" name = "images"></p>
+    <button type="submit"> submit</button>
+</form> -->

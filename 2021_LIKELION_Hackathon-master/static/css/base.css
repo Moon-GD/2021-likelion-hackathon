@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.title{
+    font-family: 'Rancho', cursive;
+  }
+  
+html{
+    background-color: rgb(240, 237, 233);
+    width: auto;
+    height: auto;
+}
+
+.hi {
+    font-family: 'Nanum-Gothic';
+    font-size:20px;
+    margin-top: 15px;
+    margin-right: 40px;
+}
+
+.nav-wrapper{
+    background-color: rgb(106, 159, 177);
+    width:auto;
+    height:90px;
+    font-family: 'Rancho', cursive;
+    display:flex;
+    align-items: center;
+    text-align: center;
+}
+
+
+.nav{                           /* 상단바 요소 세개 묶은 거*/
+    list-style-type: none;
+    display: flex;
+    position: flex;
+    width:auto;
+}
+
+.nav li{
+    font-size: 25px;
+    display: inline-block;
+}
+
+.nav .logout {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 30px;
+}
+
+.nav-item-link {
+    position: flex;
+    width:70px;
+    height: 30px;
+    margin-top: 15px;
+    margin-right: 20px;
+    background-color:rgba(26,6,255, 0.54);
+    color: aliceblue;
+    font-family: 'Roboto';
+    font-size:15px;
+    text-align: center;
+    border-radius: 10px;
+    border:0;
+}
+
+.nav-profile{
+    width: 50px;
+    height: 50px;
+    margin-right: 25px;
+}
+
+.nav-credit{
+    width: 50px;
+    height: 50px;
+    margin-top: 2px;
+    margin-right: 25px;
+}
+
+.nav-wrapper .logo {        /* 상단바 로고 */
+    position: flex;
+    float: center;
+    padding: 15px 0 20px 30px;
+}
+
+.blank_left {  /* 가상 공간 */
+    width: 44%;
+}
+
+.blank_right {
+    width: 10%;
+}
+
+.nav li{
+    font-size: 25px;
+}
+
+.nav .logout {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-right: 30px;
+}
+
+.nav-profile{
+    width: 50px;
+    height: 50px;
+}
+
+.nav li a{
+    text-decoration: none;
+}
+
+.nav li a:link{
+    color: white;
+}
+
+.nav li a:visited{
+    color:white;
+}
+
+.nav li a:hover{
+    color:skyblue;
+}
+
+.profile-content img{
+    width: 80px;
+    height: 80px;
+    border-radius: 20%;
+    object-fit: cover;
+
+    position: absolute;
+    left: 18px;
+}
+
+input::-webkit-input-placeholder { color: #f00; }

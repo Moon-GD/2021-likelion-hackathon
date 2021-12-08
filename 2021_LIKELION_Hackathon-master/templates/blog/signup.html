@@ -1,0 +1,30 @@
+{% extends 'blog/base.html'%}
+{% load static %}
+
+{% block content%}
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+<body>
+  <form method="POST" action="{% url 'signup' %}">
+    {% csrf_token %}
+      <div class ="main">
+        <div class="ID">
+          <button type="button" class="id">ID</button>
+          <input class ="input-id"name="username" type="text" value="">
+        </div>
+        <div class="Password">
+          <button type="button" class="password">비밀번호</button>
+          <input class ="input-password" name="password" type="password" value="">
+        </div>
+        <div class="Password2">
+          <button type="button" class="password2">비밀번호 확인</button>
+          <input class="input-password2" name="password2" type="password" value="">
+        </div>
+      </div>
+      <div class="enter">
+        <button type="button" class="btn2"><a href="{% url 'login' %}">취소</a></button>
+        <button type="submit" class="btn2" value="회원가입">회원가입</button>
+      </div>
+    </div>
+  </form>
+</body>
+{%endblock%}

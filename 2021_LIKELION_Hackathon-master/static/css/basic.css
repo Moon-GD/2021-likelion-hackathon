@@ -1,0 +1,205 @@
+
+.detail-card{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-style: cover;
+  border-color:aliceblue;
+  margin-top: 40px;
+}
+.card{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 80px;
+  margin-left: 5cm;
+  width:400px;
+}
+
+.card-header{
+  display:flex;
+  justify-content: center;
+}
+
+.header-profile img{
+    width:30px;
+    height:30px;
+}
+
+.profile-picture img{
+  width:30px;
+  height:30px;
+  position: absolute;
+  top: 125px;
+  left: 355px;
+}
+.card-writer{
+ margin-left: 1cm;
+}
+
+.edit{
+  position: absolute;
+  top: 580px;
+  left: 700px;
+}
+.delete{
+  position: absolute;
+  top: 580px;
+  left: 750px;
+}
+
+.main-picture img{
+  width:500px;
+  height:300px;
+  object-fit: cover;
+  border-radius: 10px;
+  position: absolute;
+  top: 170px;
+  left: 350px;
+}
+
+.sub-comment{
+  width:500px;
+  height:40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+
+p{
+  text-align: start;
+}
+
+.map{  
+  position: absolute;
+  top: 128px;
+  left: 820px;
+}
+
+.Hash-tag{
+  color: rgba(26, 6, 255, 0.54);
+  position: absolute;
+  top: 505px;
+  left: 350px;
+}
+.Time {
+  position: absolute;
+  top: 505px;
+  left: 750px;
+}
+.Like{
+  position: absolute;
+  top: 479px;
+  left: 350px;
+}
+.card2{
+  margin-bottom:2cm;
+  justify-content: center;
+}
+
+.main-comment{
+  position: absolute;
+  width:400px;
+  top: 540px;
+  left: 350px;
+}
+
+.weather-picture{
+  margin-left: 7cm;
+} 
+
+.card2 img{
+  height:80px;
+}
+.comment{
+  background-color: white;
+  border-color: aliceblue;
+  width:350px;
+  height:400px;
+  border: 0.01px solid;
+  border-radius: 5px;
+  box-shadow: 1px 0px 2px 1px rgb(209, 209, 209);
+  border-style: solid;
+  border-color:aliceblue;
+}
+
+.comment-input{
+  display: flex;
+  width:350px;
+  margin-top: 0.1cm;
+  flex-direction: row;  
+  border-style: solid;
+  border-radius: 5px;
+  box-shadow: 1px 0px 2px 1px rgb(209, 209, 209);
+  border-color:aliceblue;
+}
+
+input{
+  width:300px;
+  height:30px;
+  margin-top:5px;
+  border-radius: 5px;
+  border-style: solid;
+  border-color:white;
+  opacity: 0.4;
+}
+
+
+.submit-btn{
+  background-color:rgba(26,6,255, 0.54);
+  color: aliceblue;
+  font-family: 'Roboto';
+  font-size:15px;
+  text-align: center;
+  border-radius: 10px;
+  border:0;
+  margin-top: 3px;
+  width:55px;
+  height:35px;
+}
+.submit-btn2{
+  background-color:rgba(26,6,255, 0.54);
+  color: aliceblue;
+  font-family: 'Roboto';
+  font-size:15px;
+  text-align: center;
+  border-radius: 10px;
+  border:0;
+  margin-top: 3px;
+  width:200%;
+}
+
+.edit{
+  position: absolute;
+  width:50px;
+  top: 475px;
+  left: 740px;
+  background-color:rgba(26,6,255, 0.54);
+  color: aliceblue;
+  font-family: 'Roboto';
+  font-size:15px;
+  text-align: center;
+  border-radius: 10px;
+  border:0;
+}
+
+.delete{
+  position: absolute;
+  width:50px  ;
+  top: 475px;
+  left: 800px;
+  background-color:rgba(26,6,255, 0.54);
+  color: aliceblue;
+  font-family: 'Roboto';
+  font-size:15px;
+  text-align: center;
+  border-radius: 10px;
+  border:0;
+}
+.card-writer{
+  position: absolute;
+  top: 123px;
+  left: 350px;
+}

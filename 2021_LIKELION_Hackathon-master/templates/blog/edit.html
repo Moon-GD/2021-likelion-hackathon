@@ -1,0 +1,85 @@
+{% extends 'blog/base.html'%}
+{%block content%}
+  <link rel="stylesheet" href="../../static/css/post.css">
+<body>
+        <form action="{%url 'update' blog.id %}" method="POST">
+        {%csrf_token%}
+        <div class="body">
+            <div class="weather-wrapper">
+                <btn class="btn_weather">날씨 선택</btn>
+                <script type="text/javascript">
+                    function checkOnlyOne(element) {
+      
+                        const checkboxes 
+                            = document.getElementsByName("weather[]");
+                        
+                        checkboxes.forEach((cb) => {
+                          cb.checked = false;
+                        })
+                        
+                        element.checked = true;
+                      }
+                    </script>
+                {% if blog.weather == "['rainy']" %}
+                <input checked="checked" type="checkbox" name="weather[]" onclick='checkOnlyOne(this)' value="rainy" id="box1" class="box1"><label for="box1">비</label>
+                {% else %}
+                <input type="checkbox" name="weather[]" onclick='checkOnlyOne(this)' value="rainy" id="box1" class="box1"><label for="box1">비</label>
+                {% endif %}
+                {% if blog.weather == "['sunny']" %}
+                <input checked="checked" type="checkbox" name="weather[]" onclick='checkOnlyOne(this)' value="sunny" id="box2" class="box2"><label for="box2">맑음</label>
+                {% else %}
+                <input type="checkbox" name="weather[]" onclick='checkOnlyOne(this)' value="sunny" id="box2" class="box2"><label for="box2">맑음</label>
+                {% endif %}
+                {% if blog.weather == "['wind']" %}
+                <input checked="checked" type="checkbox" name="weather[]" onclick='checkOnlyOne(this)' value="wind" id="box3" class="box3"><label for="box3">선선함</label>
+                {% else %}
+                <input type="checkbox" name="weather[]" value="wind" onclick='checkOnlyOne(this)' id="box3" class="box3"><label for="box3">선선함</label>
+                {% endif %}
+                {% if blog.weather == "['cloudy']" %}
+                <input checked="checked" type="checkbox" name="weather[]" value="cloudy" onclick='checkOnlyOne(this)' id="box4" class="box4"><label for="box4">구름 조금</label>
+                {% else %}
+                <input type="checkbox" name="weather[]" value="cloudy" onclick='checkOnlyOne(this)' id="box4" class="box4"><label for="box4">구름 조금</label>
+                {% endif %}
+
+                
+            </div>
+        </div>
+        <div class="body2">
+            <div class="time-wrapper">
+                <btn class="btn_time">시간 선택</btn>
+                <input type="datetime-local"/>
+            </div>
+        </div>
+
+        
+        <div class="body4">
+            <div class="hashtag-wrapper">
+                <btn class="btn_hashtag">해시태그</btn>
+                <textarea name="hashtag" rows="5" cols="50">{{blog.hashtag}}</textarea>
+            </div>
+        </div>
+        <div class="body5">
+            <div class="desc-wrapper">
+                <btn class="btn_desc" style="height: 35px; margin-top: 60px;">내용 입력</btn>
+                
+                <textarea name="body" rows="10" cols="50">{{blog.body}}</textarea>
+                
+            </div>
+        </div>        
+        <button class="submit" type="submit"> submit</button>
+    </form>
+
+</body>
+{%endblock%}
+
+
+
+<!-- <form action="{%url 'create'%}" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    <p><input type="checkbox" name="rainy" id="box1" class="box1">비
+    <input type="checkbox" name="snowy" id="box1" class="box1">눈</p>
+    본문 <textarea name="body" id="" cols="30" rows="10"></textarea>
+    <p>태그 <textarea name="hashtag" id="" cols="30" rows="1"></textarea></p>
+    <p>사진: <input type="file" name = "images"></p>
+    <button type="submit"> submit</button>
+</form> -->

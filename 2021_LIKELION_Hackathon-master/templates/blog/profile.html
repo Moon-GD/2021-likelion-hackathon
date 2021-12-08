@@ -1,0 +1,34 @@
+
+<!-- accounts/templates/accounts/people.html -->
+{% extends 'blog/base.html' %}
+
+{% load bootstrap4 %}
+
+{% block content %}
+<link rel="stylesheet" href="../../static/css/profile.css">
+<div class="row">
+     <div class="col-4">
+        <img src=
+        {% if person.profile.profile_photo %}
+        "{{ person.profile.profile_photo.url }}"
+        {% else %}
+        "https://i.stack.imgur.com/34AD2.jpg"
+        {% endif %} 
+        width="200px" height="200px" style="border-radius: 50%;" alt="">
+    </div>
+    <div class="col-8">
+        <h2>{{ person.profile.nickname }}
+            <!-- 다음 포스트에 프로필 편집 페이지를 구성할 것이다. -->
+        </h2>
+        <h3>
+            <p>이메일 주소 : {{user.email}}</p>
+            <p>성 : {{user.last_name}}</p>
+            <p>이름 : {{user.first_name}}</p>
+            <p>자기소개 : {{person.profile.description}}</p>
+        </h3>
+        {% if user.username == user.username %}
+            <a href="{% url 'modify' %}"><button class="btn btn-success">프로필 편집</button></a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
